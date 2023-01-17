@@ -21,7 +21,7 @@ timezone: Asia/Seoul
 
 title: Hobbychive                          # the main title
 
-tagline: 박상원의 취미(라쓰고 개발이라 읽는)블로그   # it will display as the sub-title
+tagline: 박상원의 취미\n(라쓰고 개발이라 읽는)블로그   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   
