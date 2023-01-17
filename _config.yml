@@ -21,7 +21,7 @@ timezone: Asia/Seoul
 
 title: Hobbychive                          # the main title
 
-tagline: A text-focused Jekyll theme   # it will display as the sub-title
+tagline: 박상원의 취미(라쓰고 개발이라 읽는)블로그   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   
@@ -198,3 +198,19 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+jekyll-compose:
+  auto-open: true
+  default_front_matter:
+    drafts:
+      description:
+      image:
+      cagtegory:
+      tags:
+    posts:
+      description:
+      image:
+      category:
+      tags:
+      published: false
+      sitemap: false
