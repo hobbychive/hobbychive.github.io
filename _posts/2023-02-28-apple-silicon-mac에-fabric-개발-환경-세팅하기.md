@@ -19,7 +19,7 @@ Mac 환경을 기준으로 설명하므로, Git 설치는 따로 설명하지 �
 
 - Docker 설치하기
 
-```shell
+```terminal
 $ brew install --cask docker
 ```
 
