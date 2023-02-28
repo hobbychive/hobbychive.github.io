@@ -47,7 +47,7 @@ $ [다운받은폴더경로]/scripts/bootstrap.sh | bash -s -- 2.5.0-beta 1.5.6-
 바이너리 설치가 완료된 후 clone된 fabric-samples 폴더로 이동한다:
 
 ```terminal
-cd fabric-samples
+$ cd fabric-samples
 ```
 
 {: .nolineno }
@@ -55,8 +55,8 @@ cd fabric-samples
 docker에서 fabric-nodeenv와 fabric-javaenv를 pull 해주는데, 이 때 플랫폼을 amd64로 명시해주어야 자동으로 인식되는 arm64와 충돌하지 않는다:
 
 ```terminal
-docker pull --platform amd64 hyperledger/fabric-nodeenv:2.5
-docker pull --platform amd64 hyperledger/fabric-javaenv:2.5
+$ docker pull --platform amd64 hyperledger/fabric-nodeenv:2.5
+$ docker pull --platform amd64 hyperledger/fabric-javaenv:2.5
 ```
 
 {: .nolineno }
@@ -70,7 +70,7 @@ docker pull --platform amd64 hyperledger/fabric-javaenv:2.5
 테스트 네트워크를 구축하기 위해 test-network 폴더로 이동한다:
 
 ```terminal
-cd test-network
+$ cd test-network
 ```
 
 {: .nolineno }
@@ -78,7 +78,7 @@ cd test-network
 network.sh를 실행시켜 네트워크를 시작하고 채널을 생성한다:
 
 ```terminal
-./network.sh up createChannel -c mychannel -ca
+$ ./network.sh up createChannel -c mychannel -ca
 ```
 
 {: .nolineno }
@@ -86,7 +86,7 @@ network.sh를 실행시켜 네트워크를 시작하고 채널을 생성한다:
 체인코드를 배포한다. 언어를 선택할 수 있고, 여기서는 node.js로 하기 위해 javascript를 선택했다:
 
 ```terminal
-./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-javascript -ccl javascript
+$ ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-javascript -ccl javascript
 ```
 
 {: .nolineno }
@@ -94,21 +94,21 @@ network.sh를 실행시켜 네트워크를 시작하고 채널을 생성한다:
 환경변수를 설정해주고, Invoke한다:
 
 ```terminal
-export PATH=${PWD}/../bin:$PATH
-export FABRIC_CFG_PATH=$PWD/../config/
-export ORDERER_CA=${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+$ export PATH=${PWD}/../bin:$PATH
+$ export FABRIC_CFG_PATH=$PWD/../config/
+$ export ORDERER_CA=${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
 # Org1 설정
-export CORE_PEER_TLS_ENABLED=true
-export CORE_PEER_LOCALMSPID="Org1MSP"
-export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
-export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
-export CORE_PEER_ADDRESS=localhost:7051
+$ export CORE_PEER_TLS_ENABLED=true
+$ export CORE_PEER_LOCALMSPID="Org1MSP"
+$ export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+$ export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+$ export CORE_PEER_ADDRESS=localhost:7051
 ```
 
 {: .nolineno }
 
 ```terminal
-peer chaincode invoke \
+$ peer chaincode invoke \
   -o localhost:7050 \
   --ordererTLSHostnameOverride orderer.example.com \
   --tls \
@@ -127,7 +127,7 @@ peer chaincode invoke \
 result: status:200 이 터미널에 뜨면 된 것이고, 배포한 체인코드를 실행하여 블록체인 정보를 읽어올 수 있다:
 
 ```terminal
-peer chaincode query -C mychannel -n basic -c '{"Args":["GetAllAssets"]}'
+$ peer chaincode query -C mychannel -n basic -c '{"Args":["GetAllAssets"]}'
 ```
 
 {: .nolineno }
@@ -135,7 +135,7 @@ peer chaincode query -C mychannel -n basic -c '{"Args":["GetAllAssets"]}'
 정보가 확인되면 성공한 것으로, 네트워크를 종료한다.
 
 ```terminal
-./network.sh down
+$ ./network.sh down
 ```
 
 {: .nolineno }
