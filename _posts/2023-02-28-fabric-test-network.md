@@ -18,7 +18,7 @@ render_with_liquid: false
 이전 실행에서 생성됐을 수 있는 컨테이너나 아티팩트를 제거하기 위해 다음 커맨드를 실행한다:
 
 ```terminal
-./network.sh down
+$ ./network.sh down
 ```
 
 {: .nolineno}
@@ -26,7 +26,7 @@ render_with_liquid: false
 그후 네트워크를 띄운다:
 
 ```terminal
-./network.sh up
+$ ./network.sh up
 ```
 
 이 명령어는 두 peer 노드, 하나의 ordering 노드를 생성하고 채널은 생성되지 않는다. 각 노드 그리고 Fabric network와 소통하는 사용자는 네트워크에 참여하기 위해서 organization에 소속되어야 한다. 테스트 네트워크는 Org1과 Org2 두 개의 peer organization을 포함한다. 또한 네트워크의 ordering service를 유지하는 하나의 orderer oragnization을 포함한다. `peer`는 Fabric network의 필수적인 요소이다. peer들은 블록체인 장부를 저장하며 블록체인 원장에 적힌 자산을 관리하는 비즈니스 로직을 포함하는 스마트 컨트랙트를 실행한다.
@@ -44,9 +44,9 @@ sample network는 orderer organization에 의해 운영되는 단일 노드 **Ra
 앞선 과정으로 peer와 orderer node가 구동되고 있고 이제 Org1과 Org2 사이의 거래를 위해 Fabric 채널을 생성하는 스크립트를 쓸 수 있다. 채널은 특정 네트워크 구성원사이 소통을 위한 private layer이다. 다음 커맨드로 채널을 생성할 수 있으며 `mychannel`이라는 이름으로 자동으로 생성된다. 뒤에 `-c` 플래그를 붙여 채널 이름을 설정할 수 있다. 채널을 생성한 후에 다른 이름으로 채널을 생성함으로써 여러 채널을 열 수 있다:
 
 ```terminal
-./network.sh createChannel
-./network.sh createChannel -c channel1
-./network.sh createChannel -c channel2
+$ ./network.sh createChannel
+$ ./network.sh createChannel -c channel1
+$ ./network.sh createChannel -c channel2
 ```
 
 {: .nolineno}
@@ -54,7 +54,7 @@ sample network는 orderer organization에 의해 운영되는 단일 노드 **Ra
 네트워크를 구성하고 채널을 생성하는 것을 한 번에 하려면 `up`과 `createChannel`을 함께 사용하면 된다:
 
 ```terminal
-./network.sh up createChannel
+$ ./network.sh up createChannel
 ```
 
 {: .nolineno}
@@ -72,7 +72,7 @@ Fabric에서 스마트 컨트랙트는 체인코드로 네트워크에 배포된
 `network.sh` 스크립트로 채널 생성을 완료했다면 다음 커맨드로 체인코드를 시작할 수 있다:
 
 ```terminal
-./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
+$ ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
 ```
 
 {: .nolineno}
@@ -84,7 +84,7 @@ Fabric에서 스마트 컨트랙트는 체인코드로 네트워크에 배포된
 테스트 네트워크를 불러온 후에 네트워크와 소통하기 위해 `peer` CLI를 사용할 수 있다. `peer` CLI는 배포된 스마트 컨트랙트를 불러올 수 있고 채널을 업데이트하거나 CLI에서 새로운 스마트 컨트랙트를 설치하고 배포할 수 있다. `text-network`{: .filepath} 에 위치하여 `peer` 바이너리를 CLI 경로에 추가하는 커맨드는 다음과 같다:
 
 ```terminal
-export PATH=${PWD}/../bin:$PATH
+$ export PATH=${PWD}/../bin:$PATH
 ```
 
 {: .nolineno}
@@ -92,7 +92,7 @@ export PATH=${PWD}/../bin:$PATH
 `fabric-samples`{: .filepath} 폴더의 `core.yaml`{: .filepath} 파일 경로를 가리키는 `FABRIC_CFG_PATH`{: .filepath} 변수도 설정해야 한다:
 
 ```terminal
-export FABRIC_CFG_PATH=$PWD/../config/
+$ export FABRIC_CFG_PATH=$PWD/../config/
 ```
 
 {: .nolineno}
@@ -102,11 +102,11 @@ export FABRIC_CFG_PATH=$PWD/../config/
 ```terminal
 # Environment variables for Org1
 
-export CORE_PEER_TLS_ENABLED=true
-export CORE_PEER_LOCALMSPID="Org1MSP"
-export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
-export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
-export CORE_PEER_ADDRESS=localhost:7051
+$ export CORE_PEER_TLS_ENABLED=true
+$ export CORE_PEER_LOCALMSPID="Org1MSP"
+$ export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+$ export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+$ export CORE_PEER_ADDRESS=localhost:7051
 ```
 
 {: .nolineno}
@@ -116,7 +116,7 @@ export CORE_PEER_ADDRESS=localhost:7051
 asset-transfer (basic) 체인코드를 설치하고 시작하는데 `./network.sh deployCC -ccl go`{: .filepath} 명령어를 사용했다면, 다음 명령어로 원장에 초기 자산 목록을 집어넣기 위해 (Go) 체인코드의 `InitLedger`{: .filepath} 함수를 불러올 수 있다:
 
 ```terminal
-peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt --peerAddresses localhost:9051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt -c '{"function":"InitLedger","Args":[]}'
+$ peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt --peerAddresses localhost:9051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt -c '{"function":"InitLedger","Args":[]}'
 ```
 
 {: .nolineno}
@@ -124,7 +124,7 @@ peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.exa
 성공했다면 `status:200`{: .filepath}라는 문구를 확인할 수 있다. 이제 CLI에서 원장에 쿼리문을 사용할 수 있으며 다음 커맨드로 채널 원장에 추가된 자산 목록을 불러올 수 있다:
 
 ```terminal
-peer chaincode query -C mychannel -n basic -c '{"Args":["GetAllAssets"]}'
+$ peer chaincode query -C mychannel -n basic -c '{"Args":["GetAllAssets"]}'
 ```
 
 {: .nolineno}
@@ -132,7 +132,7 @@ peer chaincode query -C mychannel -n basic -c '{"Args":["GetAllAssets"]}'
 장부에 있는 자산을 거래하거나 변경할 때 체인코드가 실행되며, 다음 커맨드를 사용한다:
 
 ```terminal
-peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt --peerAddresses localhost:9051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt -c '{"function":"TransferAsset","Args":["asset6","Christopher"]}'
+$ peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt --peerAddresses localhost:9051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt -c '{"function":"TransferAsset","Args":["asset6","Christopher"]}'
 ```
 
 {: .nolineno}
@@ -144,11 +144,11 @@ asset-transfer (basic) 체인코드의 보증 정책에서 Org1과 Org2의 서�
 ```terminal
 # Environment variables for Org2
 
-export CORE_PEER_TLS_ENABLED=true
-export CORE_PEER_LOCALMSPID="Org2MSP"
-export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
-export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
-export CORE_PEER_ADDRESS=localhost:9051
+$ export CORE_PEER_TLS_ENABLED=true
+$ export CORE_PEER_LOCALMSPID="Org2MSP"
+$ export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+$ export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+$ export CORE_PEER_ADDRESS=localhost:9051
 ```
 
 이후 Org1에와 마찬가지로 쿼리문을 실행하면 된다.
