@@ -139,3 +139,5 @@ organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/
 {: .nolineno}
 
 admin user에 대한 증명서는 `signcerts`{: .filepath} 폴더에 있고 private key는 `keystore`{: .filepath} 폴더에서 찾을 수 있다.
+
+cryptogen tool 을 사용하는 방법과 Fabric CA를 사용하는 방법 모두 `organizations`{: .filepath} 폴더에 각 organization에 대한 암호 자재를 생성한다. 네트워크를 설정하는데 쓰인 커맨드는 `organizations/fabric-ca`{: .filepath} 디렉토리의 `registerEnroll.sh`{: .filepath} 스크립트에서 확인할 수 있다.
