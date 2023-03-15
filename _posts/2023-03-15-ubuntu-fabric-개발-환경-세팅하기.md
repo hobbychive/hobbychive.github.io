@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hyperledger Fabric (1.5) - Ubuntu Fabric 개발 환경 세팅하기
+title: Hyperledger Fabric (1-1) - Ubuntu Fabric 개발 환경 세팅하기
 date: 2023-03-15 16:07 +0900
 categories: [Blockchain, Hyperledger Fabric]
 tags: [blockchain, hyperledger fabric, nodejs, ubuntu]
