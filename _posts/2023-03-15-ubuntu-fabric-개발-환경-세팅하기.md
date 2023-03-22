@@ -7,7 +7,7 @@ tags: [blockchain, hyperledger fabric, nodejs, ubuntu]
 render_with_liquid: false
 ---
 
-Ubuntu 환경에서 Hyperledger Fabric 개발 환경을 구축한다. 해당 포스트에서는 ssh를 사용하여 ubuntu v22.04.1 서버에 접속하고 Fabric 최신버전(2023.03 기준)인 v2.4.9를 설치한다.
+Ubuntu 환경에서 Hyperledger Fabric 개발 환경을 구축한다. 해당 포스트에서는 ssh를 사용하여 ubuntu v22.04.1 서버에 접속하고 Fabric LTS 버전인 v2.2.10을 설치한다.
 
 <br>
 
@@ -74,18 +74,22 @@ $ mkdir fabric-network
 
 {: .nolineno}
 
+### node, npm 설치
+
+node v14.13.1, npm v6.4.1로 설치했다. 버전이 높아서 실행이 안되는 경우가 있으므로 이 버전을 다운받는 것을 추천한다.
+
 <br>
 
-## Hyperledger Fabric v2.4.9 설치
+## Hyperledger Fabric v2.2.10 설치
 
 <br>
 
-curl을 사용하여 Github에 공개되어있는 hyperledger/fabric 레포지토리의 소스코드를 다운받는다. [v2.4.9](https://github.com/hyperledger/fabric/releases/tag/v2.4.9)에서 직접 다운받는것도 가능하다:
+curl을 사용하여 Github에 공개되어있는 hyperledger/fabric 레포지토리의 소스코드를 다운받는다. [v2.2.10](https://github.com/hyperledger/fabric/releases/tag/v2.2.10)에서 직접 다운받는것도 가능하다:
 
 ```terminal
 # 명령어 형식은 다음과 같다
 # curl -sSL https://bit.ly/2ysbOFE | bash -s -- <fabric_version> <fabric-ca_version>
-$ curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.4.9 1.5.3
+$ curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.2.10
 ```
 
 {: .nolineno }
