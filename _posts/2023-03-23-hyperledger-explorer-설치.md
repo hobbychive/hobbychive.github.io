@@ -129,7 +129,7 @@ $ ./start.sh
 이 과정까지 마쳤으면 localhost:8080으로 접속이 가능하며, 기본 id / pw는 `exploreradmin / exploreradminpw` 이다.
 
 ```markdown
-![Desktop View](/assets/img/hyperledger_explorer.png){: w="700" h="400" }
+![Desktop View](/assets/img/posts/hyperledger_explorer.png){: w="700" h="400" }
 ```
 
 {: .nolineno}
