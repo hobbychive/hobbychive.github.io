@@ -103,7 +103,7 @@ $ ./createdb.sh
 **fabric network를 올리고 채널까지 생성한다.** fabric-network의 비공개 key path를 복사해두고, explorer의 튜토리얼 네트워크 설정 파일인 first-network.json에서 비공개 key 파일 path로 대체한다:
 
 ```terminal
-$ ls ~/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/
+$ ls ~/fabric-samples/tmp/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/priv_sk
 # key 확인
 $ cd blockchain-explorer/app/platform/fabric/connection-profile
 $ vi first-network.json
