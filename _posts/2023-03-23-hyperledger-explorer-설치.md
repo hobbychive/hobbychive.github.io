@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hyperledger Explorer 설치
+title: Hyperledger Fabric (4) - Hyperledger Explorer 설치
 date: 2023-03-23 15:15 +0900
 categories: [Blockchain, Hyperledger Fabric]
 tags: [blockchain, hyperledger fabric, hyperledger explorer]
@@ -128,11 +128,7 @@ $ ./start.sh
 
 이 과정까지 마쳤으면 localhost:8080으로 접속이 가능하며, 기본 id / pw는 `exploreradmin / exploreradminpw` 이다.
 
-```markdown
 ![Desktop View](/assets/img/posts/hyperledger_explorer.png){: w="700" h="400" }
-```
-
-{: .nolineno}
 
 `docker-compose down -v`로 종료할 수 있다.
 
