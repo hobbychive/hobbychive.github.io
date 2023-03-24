@@ -132,4 +132,4 @@ $ ./start.sh
 
 `docker-compose down -v`로 종료할 수 있다.
 
-이 포스트는 21시간 블로그 포스트 [\[Hyperledger Fabric\] 하이퍼 레저 패브릭 & 익스플로러 설치 방법](https://tmjb.tistory.com/15)과 [hyperledger explorer github repository](https://github.com/hyperledger-labs/blockchain-explorer)를 참고하였다.
+이 포스트는 21시간님의 블로그 포스트 [\[Hyperledger Fabric\] 하이퍼 레저 패브릭 & 익스플로러 설치 방법](https://tmjb.tistory.com/15)과 [hyperledger explorer github repository](https://github.com/hyperledger-labs/blockchain-explorer)를 참고하였다.
