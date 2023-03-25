@@ -52,7 +52,7 @@ _출처: hyperledger fabric reference_
 
 ### using cryptogen tool
 
-`network.sh`{: .filepath} 스크립트는 peer와 ordering 노드를 생성하기 전에 네트워크를 배포하고 운영하는데 필요한 암호자재를 생성한다. 스크립트에서 자동으로 인증서와 키를 생성하는데 필요한 cryptogen 툴을 사용하며 이 툴은 개발과 테스트, 그리고 필요한 암호자재를 빠르게 생성한다. `./network.sh`{: .filepath} 커맨드를 실행할 때 cryptogen 툴이 Org1, Org2, Orderer Org 가각에 인증서와 키를 생성하는 것을 볼 수 있다.
+`network.sh`{: .filepath} 스크립트는 peer와 ordering 노드를 생성하기 전에 네트워크를 배포하고 운영하는데 필요한 암호자재를 생성한다. 스크립트에서 자동으로 인증서와 키를 생성하는데 필요한 cryptogen 툴을 사용하며 이 툴은 개발과 테스트, 그리고 필요한 암호자재를 빠르게 생성한다. `./network.sh`{: .filepath} 커맨드를 실행할 때 cryptogen 툴이 Org1, Org2, Orderer Org 각각에 인증서와 키를 생성하는 것을 볼 수 있다.
 
 ```shell
 creating Org1, Org2, and ordering service organization with crypto from 'cryptogen'
