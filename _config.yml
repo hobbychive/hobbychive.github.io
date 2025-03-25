@@ -44,8 +44,7 @@ social:
     # - https://www.linkedin.com/in/username
 
 # Site Verification Settings
-webmaster_verifications:
-  google: google-site-verification=mYnpl9JOos-v9fqLzxaHdMHKOHnsj2I0mSXWltSwiwU
+google_site_verification: YlgPqSCFJR9npQ7ul3QbfW0NTHYi5deVdMCcL-5fQGk
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
