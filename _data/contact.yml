@@ -14,6 +14,9 @@
 - type: linkedin
   icon: "fab fa-linkedin" # icons powered by <https://fontawesome.com/>
   url: "https://www.linkedin.com/in/%EC%83%81%EC%9B%90-%EB%B0%95-9784792a8/" # Fill with your Linkedin homepage
+- type: instagram
+  icon: "fab fa-instagram" # icons powered by <https://fontawesome.com/>
+  url: "https://www.instagram.com/hobbychive/" # Fill with your Instagram homepage
 # -
 #   type: stack-overflow
 #   icon: 'fab fa-stack-overflow'
