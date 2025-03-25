@@ -209,4 +209,4 @@ jekyll-compose:
       category:
       tags:
       published: false
-      sitemap: false
+      sitemap: true
